@@ -1,24 +1,35 @@
-﻿.navbar {
+﻿body {
+    color: white;
+}
+.navbar {
     margin-bottom: 0px;
     border-radius: 0px;
+    background-color: #00394d;
+    color: white;
 }
 .row.content {
-    height: 650px;
+    height: 550px;
 }
 
 .sideNav {
     padding-top: 50px;
     height: 100%;
-    background-color: azure;
+    background-color: #0083b3;
+    color: white;
 }
 .sidNavLink {
     padding: 20px;
-    background: cornflowerblue;
-    color: azure;
+    background-color: #669999;
+}
+a {
+    color: white;
+}
+.well {
+    color: black;
 }
 .footer {
-    background-color: cadetblue;
-    color: white;
+    background-color: #006080;
+    /*color: white;*/
     padding: 15px;
 }
 

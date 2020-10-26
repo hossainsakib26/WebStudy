@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Business</title>
+
+    <link href="../BaseCSS/FormCSS.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div align="center">
+        <h1>A Input Form Example</h1>
+    </div>
+    <form method="post">
+        <fieldset>
+            <table>
+                <tr>
+                    <td align="right">
+                        <label>Category: </label>
+                    </td>
+                    <td>
+                        <select>
+                            <option>---Select one---</option>
+                            <option value="1">Shirt</option>
+                            <option value="2">Pant</option>
+                            <option value="3">T-Shirt</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Product: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="productName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>SKU: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="SKU" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Cost Price: </label>
+                    </td>
+                    <td>
+                        <input type="text" min="0" name="cPrice" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Sale Price: </label>
+                    </td>
+                    <td>
+                        <input type="text" min="0" name="sPricce" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Description: </label>
+                    </td>
+                    <td>
+                        <textarea name="description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>File: </label>
+                    </td>
+                    <td>
+                        <input type="file" name="file" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label>Files: </label>
+                    </td>
+                    <td>
+                        <input type="file" name="files" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" name="Save" value="Save" />
+                        <input type="button" name="Clear" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>

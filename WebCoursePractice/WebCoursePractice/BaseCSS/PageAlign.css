@@ -1,66 +1,73 @@
-﻿#full {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 0px 0px 0px 0px;
+﻿* {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+#full {
     color: white;
     text-align: center;
 }
 
 #header {
-    border-bottom: 2px solid green;
-    border-radius: 3px;
     width: 100%;
     height: 80Px;
-    background-color: #0ff78e;
     padding: 0px;
-    margin: auto;
     font-size: 24px;
-    margin-bottom: 2px;
+    border-style: solid;
+    /*background-color: #0ff78e;*/
+    /*border-bottom: 2px solid green;*/
+    /*border-radius: 3px;*/
+    /*margin-bottom: 2px;*/
 }
 
 #upNav {
-    background-color: #039696;
     width: 100%;
     height: 40px;
     font-size: 20px;
-    border-top: 2px solid red;
-    border-radius: 5px;
-    margin-bottom: 2px;
+    border-style: solid;
+    /*background-color: #039696;*/
+    /*border-top: 2px solid red;*/
+    /*border-radius: 5px;
+    margin-bottom: 2px;*/
 }
 
 #leftNav {
-    background-color: #4a5b85;
     width: 20%;
-    height: 480px;
-    border-radius: 2px;
+    height: 490px;
     float: left;
+    border-style: solid;
+    /*background-color: #4a5b85;*/
+    /*border-radius: 2px;*/
 }
 
 #content {
-    background-color: #6d8278;
     width: 60%;
-    height: 480px;
+    height: 490px;
     float: left;
-    margin-left: 2px;
-    border-radius: 2px;
+    border-style: solid;
+    /*background-color: #6d8278;*/
+    /*margin-left: 2px;*/
+    /*border-radius: 2px;*/
 }
 
 #rightNav {
-    background-color: #0c3027;
-    width: 19.6%;
-    height: 480px;
+    width: 20%;
+    height: 490px;
     float: left;
-    border-radius: 2px;
-    margin-left: 2px;
+    border-style: solid;
+    /*background-color: #0c3027;*/
+    /*margin-left: 2px;*/
+    /*border-radius: 2px;*/
 }
 
 #footer {
-    background-color: #7a11f2;
     width: 100%;
-    height: 30px;
-    border-radius: 2px;
-    margin-top: 2px;
+    height: 40px;
     float: left;
+    border-style: solid;
+    /*background-color: #034035;*/
+    /*background-image: linear-gradient(to right, #034035, #abfff0);*/
+    /*margin-top: 2px;*/
+    /*border-radius: 2px;*/
 }
-

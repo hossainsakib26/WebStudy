@@ -1,0 +1,30 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+/*    color: white;*/
+}
+
+.page-parent-div {
+    height: 420px;
+}
+
+.parent-row-div {
+    height: 420px;
+}
+
+.parent-col-div {
+    height: 100%;
+    color: black;
+}
+
+option {
+    color: black;
+}
+
+@media screen and (max-width: 375px) {
+    .parent-col-div {
+        height: auto;
+        width: 100%;
+        padding: 5px;
+    }
+}

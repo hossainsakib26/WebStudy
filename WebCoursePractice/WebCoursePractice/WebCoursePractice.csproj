@@ -69,6 +69,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JQ_Assignment\css\crud.css" />
+    <Content Include="JQ_Assignment\dbContext\dbSchool.js" />
+    <Content Include="JQ_Assignment\js\crud.js" />
+    <Content Include="JQ_Assignment\models\Student.js" />
+    <Content Include="JQ_Assignment\view\crud.html" />
     <Content Include="BaseCSS\FormCSS.css" />
     <Content Include="BaseCSS\PageAlign.css" />
     <Content Include="BaseCSS\SimpleBootstrapPractice.css" />
@@ -78,11 +83,21 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DBContext\DBContext.js" />
+    <Content Include="MegaStudy\Class46.html" />
     <Content Include="MegaStudy\megaIndex.html" />
     <Content Include="MegaStudy\SimpleBootstrapPractice.html" />
     <Content Include="MegaStudy\SimpleForm.html" />
+    <Content Include="Models\Customer.js" />
+    <Content Include="myJS\class46.js" />
     <Content Include="myJS\firstJS.js" />
+    <Content Include="myJS\jsClass45.js" />
     <Content Include="myJS\myHTML.html" />
+    <Content Include="myJS\SimpleBootstrapPractice.js" />
+    <Content Include="MyWork\css\customerForm.css" />
+    <Content Include="MyWork\js\customerForm.js" />
+    <Content Include="MyWork\models\MyCustomer.js" />
+    <Content Include="MyWork\view\customerForm.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -215,10 +230,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

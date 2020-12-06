@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="../css/customerForm.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="flex-container">
+
+        <div class="myCard">
+            <div class="myCard_header">
+                New Customer
+            </div>
+            <div class="myCard_body">
+                <div class="inputItems">
+                    <label for="customerName">Customer Name</label>
+                    <input class="inputText" type="text" name="customerName" id="customerName" placeholder="ex. Sazzad Sakib" />
+                    <span id="errorCustomerName" style="display: none; color: red;"></span>
+                </div>
+                <div class="inputItems">
+                    <div class="doubleInputItems">
+                        <label for="email" class="doubleLabel">Email</label>
+                        <input class="doubleinputText" type="text" name="email" id="email" placeholder="ex. sazzad@mail.com" />
+                        <span id="errorEmail" style="color: red;"></span>
+                    </div>
+
+                    <div class="doubleInputItems">
+                        <label for="phone" class="doubleLabel">Phone</label>
+                        <input class="doubleinputText" type="tel" name="phone" id="phone" placeholder="ex. 0168 888888" />
+                        <span id="errorPhone" style="visibility: hidden; color: red;">Required</span>
+                    </div>
+                </div>
+                <div class="inputItems">
+                    <label for="addressTypeId" id="addressTypeIdLabel">Address Type</label>
+                    <select class="inputText" name="addressTypeId" id="addressTypeId">
+                        <option value="">---Please Select---</option>
+                        <option value="1">Permanent</option>
+                        <option value="2">Present</option>
+                    </select>
+                    <span id="errorAddressType" style="visibility: hidden; color: red;">Required</span>
+                </div>
+                <div class="inputItems" id="addressDiv" style="visibility: visible">
+                    <label for="address" id="addressLabel">Prsent Address</label>
+                    <textarea class="inputText" id="address" name="address" placeholder="ex. Dhaka Bangladesh"></textarea>
+                    <span id="errorAddress" style="visibility: hidden; color: red;">Required</span>
+                </div>
+            </div>
+            <div class="myCard_footer">
+                <input type="button" class="button" name="Save" id="saveButton" value="Save" />
+                <input type="button" class="clear" name="Clear" id="clearButton" value="Clear" />
+            </div>
+        </div>
+
+        <!-- datatable -->
+        <div class="myCard">
+            <div class="myCard_header">
+                Customer Table
+            </div>
+            <div class="myCard_body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 3%">Sl.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address Type</th>
+                            <th>Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerData">
+                        <!--<tr>
+                            <td id="tdSl"></td>
+                            <td id="tdName"></td>
+                            <td id="tdEmail"></td>
+                            <td id="tdPhone"></td>
+                            <td id="tdAddressType"></td>
+                            <td id="tdAddress"></td>
+                            <td id="tdAction"></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="myCard_footer">
+                footer
+            </div>
+        </div>
+    </div>
+
+    <script src="../models/MyCustomer.js"></script>
+    <script src="../js/customerForm.js"></script>
+    <script src="../../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../../Scripts/popper.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+</body>
+</html>

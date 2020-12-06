@@ -1,15 +1,17 @@
 ﻿.navbar {
     margin-bottom: 0;
-    border-radius: 0;
+}
+
+
+.row.content {
+    height: 100%;
+    margin: 5%;
 }
 
 .siteContent {
+    height: 100%;
+    margin: 5%;
 }
-
-.row.content {
-    height: 540px;
-}
-
 a {
     color: white;
 }
@@ -18,11 +20,6 @@ a {
     text-align:center;
     padding: 5%;
     color: white;
-    height: 100%;
-}
-
-.siteContent {
-    margin-top: 5px;
     height: 100%;
 }
 

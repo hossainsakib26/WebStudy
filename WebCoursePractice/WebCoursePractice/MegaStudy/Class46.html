@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="common-div" id="dataDiv">
+        this is div
+    </div>
+    <div class="common-div" id="menu">
+        this is Menu
+    </div>
+
+    <!--<input id="nameOne" type="text" onchange="setNameOneNameTwoTextBox()" />-->
+    <input id="nameOne" type="text" />
+    <!--<input id="nameOne" type="text" onkeyup="setNameOneNameTwoTextBox()" />-->
+
+    <input id="nameTwo" type="text" />
+
+    <button onclick="updateDataDivText()">Change Div Text</button>
+    <button onmouseout="removeNameOneNameTwoTextBox()" onmouseover="setNameOneNameTwoTextBox()">Mouse Over</button>
+
+    <br />
+    <br />
+    <button onclick="showStudentForm()">Show Student Form</button>
+    <button onclick="hideStudentForm()">Hide  Student Form</button>
+    <!--<button onclick="createStudentForm()">Create Student Form</button>-->
+
+    <br />
+    <br />
+    <div id="studentFormDiv" style="display:none">
+        <form method="post">
+            <input type="text" id="studentName" />
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    /////////////////////////
+    <br />
+    <br />
+    <!--<button onclick="showEmployeeForm()">Show Employee Form</button>-->
+    <button onclick="hideEmployeeForm()">Hide Employee Form</button>
+    <button onclick="createEmployeeForm()">Create Employee Form</button>
+
+    <br />
+    <br />
+    <div id="employeeFormDiv" style="display:none">
+        <form method="post">
+            <input type="text" id="employeeName" />
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <br />
+    <br /><br />
+    <br />
+
+    <table id="studentTable">
+
+    </table>
+
+    <script src="../myJS/class46.js"></script>
+</body>
+</html>

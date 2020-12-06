@@ -4,9 +4,6 @@
     <meta charset="utf-8" />
     <title>Bootstrap Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../BaseCSS/SimpleBootstrapPractice.css" rel="stylesheet" />
@@ -51,79 +48,147 @@
 
     <div class="container-fluid">
         <h1 class="text-center">Create Form</h1>
-    </div>
-    <div class="container-fluid">
-        <div class="row content">
-            <div class="col-2 bg-info sideNav">
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
-                <p><a href="#">Link</a></p>
+        <div class="col-12">
+
+            <div class="row">
+                <div class="form-group col-12">
+                    <label id="fieldValidation" for="customerName">Customer Name:</label>
+                    <!--  onkeyup="validateName()"  -->
+                    <input type="text" class="form-control form-control" name="customerName" id="customerName" placeholder="Ex: Jhon Sahid" />
+                    <span id="nameSpan" style="display: none" class="text-danger">Name Required!</span>
+                </div>
+
+                <div class="form-group col-12">
+                    <label id="emailValidation" for="email">Email:</label>
+                    <input type="text" class="form-control form-control" name="email" id="email" placeholder="Ex: example@email.com" />
+                    <span id="emailSpan" style="display: none" class="text-danger">Email Required!</span>
+
+                </div>
+
+                <div class="form-group col-6">
+                    <label id="contactNoValidation" for="contactNo">Contact No:</label>
+                    <input type="text" class="form-control form-control" name="contactNo" id="contactNo" placeholder="Ex: 0168 2222 ****" />
+                    <span id="contactNoSpan" style="display: none" class="text-danger">Contact Required!</span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label id="addressTypeValidation" for="addressTypeId">Address:</label>
+                    <select id="addressTypeId" name="addressTypeId" class="custom-select">
+                        <option selected value="">--Select Please--</option>
+                        <option value="1">Present Address</option>
+                        <option value="2">Permanent Address</option>
+                    </select>
+                    <span id="addressTypeIdSpan" style="display: none" class="text-danger">Address Required!</span>
+                </div>
+
+                <div class="form-group col-12" id="addressDiv" style="display: none">
+                    <label id="addressLabel" for="address">Permanent Address:</label>
+                    <textarea class="form-control form-control" name="address" id="address" placeholder="Ex: Dhaka"></textarea>
+                    <span id="addressSpan" style="display: none" class="text-danger">Address Required!</span>
+                </div>
+                <hr />
+                <div class="form-group col-12" align="right">
+                    <button class="btn btn-outline-success" id="submitButton" type="submit">Save</button>
+                    <button class="btn btn-outline-danger" id="cancelButton">Cancel</button>
+                </div>
             </div>
-            <div class="col-8 siteContent">
-                <div class="row">
-                    <div class="form-group col-12">
-                        <label>Customer Name:</label>
-                        <input type="text" class="form-control form-control" id="customerName" placeholder="Ex: Sarkar Shaon" />
-                    </div>
-                    
-                    <div class="form-group col-6">
-                        <label>Gender:</label>
-                        <select name="gender" class="custom-select">
-                            <option selected>Select a gender</option>
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-6">
-                        <label>Birthday:</label>
-                        <input type="date" class="form-control form-control" id="birthday" placeholder="Ex: 26/08/2020" />
-                    </div>
-
-                    <div class="form-group col-6">
-                        <label>Company:</label>
-                        <input type="text" class="form-control form-control" id="companyName" placeholder="Ex: RFL Group" />
-                    </div>
 
 
-                    <div class="form-group col-6">
-                        <label>Address:</label>
-                        <input type="text" class="form-control form-control" id="customerName" placeholder="Ex: Garden Road, Panthapath" />
-                    </div>
+            <div class="row">
+                <div class="table-responsive col-12">
+                    <table class="table table-hover table-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Sl.</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact No</th>
+                                <th>Address Type</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <div class="form-group col-6">
-                        <label>City:</label>
-                        <input type="text" class="form-control form-control" id="cityName" placeholder="Ex: Dhaka" />
-                    </div>
-
-                    <div class="form-group col-6">
-                        <label>Post Code:</label>
-                        <input type="text" class="form-control form-control" id="postCode" placeholder="Ex: Post Code" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="Save" class="btn btn-outline-success mx-3" />
-                    </div>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="form-group col-6">
+                    <input type="text" class="form-control form-control" name="searchName" id="searchName" placeholder="Ex: search by" />
+                </div>
+                <div class="form-group col-6">
+                    <button class="btn btn-outline-success" id="findButton" type="submit">Find</button>
+                    <button class="btn btn-outline-danger" id="cButton">Cancel</button>
                 </div>
 
             </div>
-            <div class="col-2 bg-info sideNav">
-                <div class="row">
-                    <div class="col-12 forAdd">
-                        <p>ADS</p>
-                    </div>
-                    <div class="col-12 forAdd">
-                        <p>ADS</p>
-                    </div>
+            <div class="row">
+                <div class="table-responsive col-12">
+                    <table class="table table-hover table-striped">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Sl.</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact No</th>
+                                <th>Address Type</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody id="searchCustomerTbody">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row content">
+            <!--<div class="col-2 bg-info sideNav">
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+                <p><a href="#">Link</a></p>
+            </div>-->
+            <!--<form class="col-8" method="post">-->
+
+            <div class="col-12 siteContent">
+
+
+            </div>
+
+            <!--<form class="col-8" method="post">
+            </form>-->
+            <!--<div class="col-2 bg-info sideNav">
+                <div class="row">
+                    <div class="col-12 forAdd">
+                        <p>ADS</p>
+                    </div>
+                    <div class="col-12 forAdd">
+                        <p>ADS</p>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
     <div class="container-fluid bg-success footer">
         footer
     </div>
 
+
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Scripts/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
+
+    <script src="../Models/Customer.js"></script>
+    <script src="../DBContext/DBContext.js"></script>
+    <script src="../myJS/SimpleBootstrapPractice.js"></script>
+
+
+
 </body>
 </html>

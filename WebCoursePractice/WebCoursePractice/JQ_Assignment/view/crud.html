@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>CRUD with Jquery</title>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../css/crud.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="container-fluid page-parent-div">
+        <div class="row parent-row-div">
+            <div class="col-sm-5 bg-light parent-col-div">
+                <div class="row">
+                    <h3 class="col-sm-12">Create Person</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="name" id="nameLabel">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Ex - Sazzad Sakib" />
+                    </div>
+                    <!--<div class="col-sm-5">
+                        <label for="userName" id="userNameLabel">User Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Ex - sazzadsakib100" />
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="email" id="emailLabel">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Ex - sazzadsakib100@mail.com" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="phone" id="phoneLabel">Phone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Ex - 0168-*******" />
+                    </div>
+                </div>
+                <div class="row">
+                    <!--<div class="col-sm-6">
+                        <label for="gender" id="genderLabel">Gender</label>
+                        <select id="gender" class="form-control">
+                            <option value="0">--Select Gender--</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                    </div>-->
+                    <div class="col-sm-6">
+                        <label for="addressTypeId" id="addressTypeLabel">Address Type</label>
+                        <select id="addressTypeId" class="form-control">
+                            <option value="0">--Select Address--</option>
+                            <option value="1">Permanent Address</option>
+                            <option value="2">Present Address</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="address" id="addressLabel">Address</label>
+                        <textarea class="form-control" id="address" placeholder="Ex - Panthapath, Dhaka"></textarea>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" id="SaveButton" class="btn btn-outline-info">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+                        </button>
+                        <button type="submit" id="ClearButton" class="btn btn-outline-danger">
+                            <i class="fa fa-times" aria-hidden="true"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 bg-dark parent-col-div">
+                <div class="table-responsive row mx-1">
+                    <table class="table-responsive-sm col-sm-12 text-light text-center">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address Type</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--bootstrap-->
+    <script src="../../Scripts/jquery-3.0.0.slim.min.js"></script>
+    <script src="../../Scripts/popper.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+
+
+    <!--my js class-->
+    <script src="../dbContext/dbSchool.js"></script>
+    <script src="../models/Student.js"></script>
+    <script src="../js/crud.js"></script>
+</body>
+</html>

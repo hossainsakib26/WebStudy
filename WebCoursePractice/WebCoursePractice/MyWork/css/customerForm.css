@@ -1,0 +1,155 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 1%;
+}
+
+
+
+.myCard {
+    margin: 1%;
+    flex: 0 1 50%;
+    background-color: white;
+    border: solid 2px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.myCard_header {
+    /*height: 10%;*/
+    padding: 2%;
+    background-color: blue;
+    color: azure;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*for body*/
+.myCard_body {
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    /*flex-direction: row;*/
+    flex-flow: row wrap;
+}
+
+.inputItems {
+    width: 100%;
+    /*margin-top: 5px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+    .inputItems label {
+        margin-top: 5px;
+        margin-bottom: 1px;
+    }
+
+.inputText {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.doubleInputItems {
+    width: 40%;
+    margin: 0px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.doubleLabel {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 1px;
+    float: left;
+}
+
+.doubleinputText {
+    width: 100%;
+    margin-bottom: 5px;
+    float: right;
+    padding: 5px;
+}
+/*for footer*/
+.myCard_footer {
+    /*height: 10%;*/
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.button {
+    border-radius: 3px;
+    border: solid 1px green;
+    /*width: 10%;*/
+    margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.009ms;
+    /*float: right;*/
+}
+
+    .button:hover {
+        background-color: rgb(67, 161, 116);
+        color: lavender;
+    }
+
+.clear {
+    border-radius: 3px;
+    border: solid 1px red;
+    /*width: 10%;*/
+    margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.009ms;
+}
+
+    .clear:hover {
+        background-color: red;
+        color: lavender;
+    }
+
+table {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: nowrap;*/
+}
+th {
+    width: 12%;
+}
+tbody {
+    font-size: 14px;
+}
+tr {
+    background-color: azure;
+}
+tr:hover {
+    background-color: gainsboro;
+}
+td {
+
+}
+
+@media (max-width: 576px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .myCard {
+        width: 100%;
+    }
+}

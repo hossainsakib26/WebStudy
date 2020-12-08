@@ -73,6 +73,7 @@
     <Content Include="JQ_Assignment\dbContext\dbSchool.js" />
     <Content Include="JQ_Assignment\js\crud.js" />
     <Content Include="JQ_Assignment\models\Student.js" />
+    <Content Include="JQ_Assignment\models\StudentSearch.js" />
     <Content Include="JQ_Assignment\view\crud.html" />
     <Content Include="BaseCSS\FormCSS.css" />
     <Content Include="BaseCSS\PageAlign.css" />

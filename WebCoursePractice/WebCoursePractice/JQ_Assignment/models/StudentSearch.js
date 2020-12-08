@@ -1,0 +1,4 @@
+﻿class StudentSearch {
+    name = '';
+    email = '';
+}

@@ -1,19 +1,25 @@
-﻿//var db = null;
-$(document).ready(function () {
+﻿$(document).ready(function () {
     db = new dbSchool();
     updateTableData();
 });
 
 var db = null;
-// controls
+var searchList = [];
 
+//global variables
+var globalStudent = new Student();
+var globalSearchStudent = new StudentSearch();
+
+// controls
 document.getElementById('name').addEventListener('keyup', isNameValid);
 document.getElementById('email').addEventListener('keyup', isEmailValid);
 document.getElementById('phone').addEventListener('keyup', isPhoneValid);
 
-
 // buttons events
 document.getElementById('SaveButton').addEventListener('click', submitForm);
+document.getElementById('ClearButton').addEventListener('click', clearFields);
+document.getElementById('SearchButton').addEventListener('click', searchStudent);
+
 
 $(document).on('click', '.edit-btn', function () {
     const studentId = $(this).attr('data-id');
@@ -33,31 +39,52 @@ $(document).on('click', '.remove-btn', function () {
 
 // functions
 function submitForm() {
-    if (isAllValid()) {
-        const student = new Student();
-        student.id = db.Students.length + 1;
-        student.name = $('#name').val();
-        student.email = $('#email').val();
-        student.phone = $('#phone').val();
-        student.addressTypeId = $('#addressTypeId').val();
-        student.address = $('#address').val();
 
-        db.Students.push(student);
-        updateTableData();
-        clearFields();
+    if (!hasAnyData(globalStudent.id)) {
+        if (isAllValid()) {
+            const student = new Student();
+            student.id = db.Students.length + 1;
+            student.name = $('#name').val();
+            student.email = $('#email').val();
+            student.phone = $('#phone').val();
+            student.addressTypeId = $('#addressTypeId').val();
+            student.address = $('#address').val();
+
+            db.Students.push(student);
+        }
+    } else if (hasAnyData(globalStudent.id)) {
+        for (var i = 0; i < db.Students.length; i++) {
+            let std = db.Students[i];
+
+            if (globalStudent.id == std.id) {
+                std.name = $('#name').val();
+                std.email = $('#email').val(); // exists method and can not set in validation mathod. 
+                std.phone = $('#phone').val();
+                std.addressTypeId = $('#addressTypeId').val();
+                std.address = $('#address').val();
+            }
+        }
     }
+    updateTableData();
+    clearFields();
 }
 
 // get a specific data
 function getStudent(data) {
+
     const myData = getById(data);
+    globalStudent.id = myData.id;
 
     // set value to input fields
-    $('#name').val(myData.name);
-    $('#email').val(myData.email);
-    $('#phone').val(myData.phone);
-    $('#addressTypeId').val(myData.addressTypeId);
-    $('#address').val(myData.address);
+    globalStudent.name = $('#name').val(myData.name);
+    globalStudent.email = $('#email').val(myData.email);
+    globalStudent.phone = $('#phone').val(myData.phone);
+    globalStudent.addressTypeId = $('#addressTypeId').val(myData.addressTypeId);
+    globalStudent.address = $('#address').val(myData.address);
+
+    if (globalStudent.id > 0) {
+        $('#btnName').html('Update');
+    }
 }
 
 function getById(id) {
@@ -71,14 +98,14 @@ function clearFields() {
     $('#phone').val('');
     //$('#addressTypeId').val('');
     $('#address').val('');
+
+    $('#btnName').html('Save');
 }
 
 function removeStudent(data) { // remove a student
     let indexNo = db.Students.indexOf(data);
-    //if (hasAnyData(indexNo)) {
-        let deleteData = db.Students.splice(indexNo, 1);
-        console.log(deleteData);
-    //}
+    let deleteData = db.Students.splice(indexNo, 1);
+    console.log(deleteData);
     return db.Students;
 }
 
@@ -107,6 +134,7 @@ function updateTableData() {
 }
 
 function isAllValid() { // confirm all validation
+
     let nameOk = isNameValid();
     let emailOk = isEmailValid();
     let phoneOk = isPhoneValid();
@@ -116,6 +144,63 @@ function isAllValid() { // confirm all validation
     } else {
         return false;
     }
+}
+
+// get search values
+function searchStudent() {
+    searchList = [];
+    const searchModelData = getSearchData();
+    if (searchModelData !== false && searchModelData != null) {
+        for (let i = 0; i < db.Students.length; i++) {
+            let student = db.Students[i];
+            if (hasAnyData(searchModelData.name)) {
+                if (student.name.toLowerCase().includes(searchModelData.name.toLowerCase())) {
+                    searchList.push(student);
+                }
+            }
+            if (hasAnyData(searchModelData.email)) {
+                if (student.email.toLowerCase().includes(searchModelData.email.toLowerCase())) {
+                    searchList.push(student);
+                }
+            }
+        }
+    }
+    searchTableData();
+}
+
+// take search value
+function getSearchData() {
+    let searchData = new StudentSearch();
+    let name = $('#searchName').val();
+    let email = $('#searchEmail').val();
+    if (hasAnyData(name) || hasAnyData(email)) {
+        searchData.name = name;
+        searchData.email = email
+    }
+
+    return searchData;
+}
+
+// search table
+function searchTableData() {
+    $('#searchDataTable').html(''); // clear all data
+
+    if (Array.isArray(searchList) && searchList.length > 0) {
+        $.each(searchList, function (i, student) {
+            // get all single values and set them in a cell
+            const idSCol = `<td>${++i}</td>`;
+            const nameSCol = `<td>${student.name}</td>`;
+            const emailSCol = `<td>${student.email}</td>`;
+            const phoneSCol = `<td>${student.phone}</td>`;
+            const addressTypeSCol = `<td>${student.addressTypeId}</td>`;
+            const addressSCol = `<td>${student.address}</td>`;
+
+            // make a row with these cell
+            const row = `<tr>${idSCol + nameSCol + emailSCol + phoneSCol + addressTypeSCol + addressSCol }</tr>`;
+            $('#searchDataTable').append(row);
+        });
+    }
+
 }
 
 // check field data
@@ -139,13 +224,19 @@ function isNameValid() {
 }
 
 function isEmailValid() {
-    //let nameData = $('#email').value();
     let emailData = $('#email').val();
+
     if (hasAnyData(emailData)) {
         let emailContain = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         if ((emailContain).test(emailData)) {
-            $('#emailLabel').css('color', 'black');
-            $('#emailLabel').html('Email');
+            if (!isEmailExists(emailData)) {
+                $('#emailLabel').css('color', 'red');
+                $('#emailLabel').html('Email is Exists. Sorry!');
+                return false;
+            } else {
+                $('#emailLabel').css('color', 'black');
+                $('#emailLabel').html('Email');
+            }
             return true;
         } else {
             $('#emailLabel').css('color', 'red');
@@ -156,11 +247,16 @@ function isEmailValid() {
     return false;
 }
 
-function isPhoneValid() {
+function isPhoneValid() { // phone number validation
     let mobileNum = $('#phone').val();
     let operator = mobileNum.slice(0, 3);
     if (mobileNum.length == 11) {
         getOperatorName(operator);
+        if (!isPhoneExists(mobileNum)) {
+            $('#phoneLabel').css('color', 'red');
+            $('#phoneLabel').html('Sorry! number already used!');
+            return false;
+        }
         $('#phoneLabel').css('color', 'black');
         return true;
     } else if (mobileNum.length < 11) {
@@ -179,6 +275,24 @@ function isPhoneValid() {
     }
 }
 
+// email exist
+function isEmailExists(emailData) {
+    let email = db.Students.filter(c => c.email === emailData);
+    if (hasAnyData(email)) {
+        return false;
+    }
+    return true;
+}
+
+// phone exists 
+function isPhoneExists(phoneData) {
+    let phone = db.Students.find(c => c.phone == phoneData);
+    if (hasAnyData(phone)) {
+        return false;
+    }
+    return true;
+}
+
 // common functions check data
 function hasDataInArry(dataArray) {
     if (Array.isArray(dataArray) && dataArray.length > 0) {
@@ -193,10 +307,6 @@ function hasAnyData(data) {
     }
     return true;
 }
-
-//function hasIndex(array) {
-//    array
-//}
 
 // check mobile operator
 function getOperatorName(operatorName) {

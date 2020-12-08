@@ -5,11 +5,11 @@
 }
 
 .page-parent-div {
-    height: 420px;
+    height: 450px;
 }
 
 .parent-row-div {
-    height: 420px;
+    height: 100%;
 }
 
 .parent-col-div {
@@ -19,6 +19,13 @@
 
 option {
     color: black;
+}
+
+.tableHeight {
+    height: 100%;
+}
+.bg-secondary {
+    color: white;
 }
 
 @media screen and (max-width: 375px) {
